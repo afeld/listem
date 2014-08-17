@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
   def index
@@ -16,10 +16,6 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  # GET /lists/1/edit
-  def edit
-  end
-
   # POST /lists
   def create
     @list = List.new(list_params)
@@ -34,9 +30,9 @@ class ListsController < ApplicationController
   # PATCH/PUT /lists/1
   def update
     if @list.update(list_params)
-      redirect_to @list, notice: 'List was successfully updated.'
+      render json: @list
     else
-      render :edit
+      render status: :not_acceptable
     end
   end
 

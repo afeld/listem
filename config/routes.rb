@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :items, only: [:destroy]
 
-  resources :lists do
+  resources :lists, except: [:edit] do
     resources :items, only: [:create]
   end
 
