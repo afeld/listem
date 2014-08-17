@@ -7,7 +7,7 @@ RSpec.describe ItemsController, :type => :routing do
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/lists/1/items/1").to route_to("items#destroy", list_id: '1', id: '1')
+      expect(:delete => "/items/1").to route_to("items#destroy", id: '1')
     end
   end
 end
