@@ -16,11 +16,12 @@ $ ->
   $contentEditable.on 'blur', (e) ->
     $el = $(e.target)
     text = $el.text()
+    fallback = $el.data('fallback')
+
     if /^\s*$/.test(text)
       # blank
-      fallback = $el.data('fallback')
       $el.text(fallback)
-    else
+    else if text != fallback
       # save
       $.ajax(
         url: location.pathname
