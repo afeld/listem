@@ -3,6 +3,12 @@ p#notice = notice
 p
   strong Title:
   = @list.title
+ul
+  - @list.items.each do |item|
+    li
+      == link_to item.title, item.url
+  li
+    == render 'items/form'
 
 = link_to 'Edit', edit_list_path(@list)
 '|

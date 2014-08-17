@@ -1,4 +1,4 @@
-= form_for @item do |f|
+= form_for [@list, @item] do |f|
   - if @item.errors.any?
     #error_explanation
       h2 = "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
@@ -12,7 +12,4 @@
   .field
     = f.label :url
     = f.text_field :url
-  .field
-    = f.label :list_id
-    = f.number_field :list_id
   .actions = f.submit 'Save'

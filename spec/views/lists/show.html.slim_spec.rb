@@ -5,6 +5,7 @@ RSpec.describe "lists/show", :type => :view do
     @list = assign(:list, List.create!(
       :title => "Title"
     ))
+    @item = Item.new
   end
 
   it "renders attributes in <p>" do
